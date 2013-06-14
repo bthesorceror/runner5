@@ -1,0 +1,21 @@
+{
+  "name": "runner5",
+  "version": "0.0.1",
+  "description": "Callback wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bthesorceror/runner5.git"
+  },
+  "keywords": [
+    "callbacks",
+    "control-flow"
+  ],
+  "author": "Brandon Farmer",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "178257a781e9355725a00d74f9ee2f8112904ae7"
+}
