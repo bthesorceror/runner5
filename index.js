@@ -14,10 +14,10 @@ Runner.prototype.run = function() {
 
   args.push(function(err, result) {
     if (err) {
-      self.error && self.error(err); 
-      self.emit('failure', err); 
+      self.error && self.error(err);
+      self.emit('failure', err);
     } else {
-      self.success && self.success(result); 
+      self.success && self.success(result);
       self.emit('success', result);
     }
   });
