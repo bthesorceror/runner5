@@ -4,7 +4,7 @@
   "description": "Callback wrapper",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "author": "Brandon Farmer",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "178257a781e9355725a00d74f9ee2f8112904ae7"
+  "gitHead": "178257a781e9355725a00d74f9ee2f8112904ae7",
+  "devDependencies": {
+    "tape": "~1.0.4"
+  }
 }
