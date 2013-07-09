@@ -14,10 +14,10 @@ Runner.prototype.run = function() {
 
   args.push(function(err, result) {
     if (err) {
-      self.error && self.error(err);
+      self._error && self._error(err);
       self.emit('failure', err);
     } else {
-      self.success && self.success(result);
+      self._success && self._success(result);
       self.emit('success', result);
     }
   });
@@ -26,11 +26,11 @@ Runner.prototype.run = function() {
 }
 
 Runner.prototype.success = function(f) {
-  this.success = f;
+  this._success = f;
 }
 
 Runner.prototype.error = function(f) {
-  this.error = f;
+  this._error = f;
 }
 
 module.exports = Runner;
