@@ -18,15 +18,27 @@ Runner.prototype.run = function() {
 
   args.push(function(err, result) {
     if (err) {
-      self._error && self._error(err);
-      self.emit('failure', err);
+      this._errored(err)
     } else {
-      self._success && self._success(result);
-      self.emit('success', result);
+      this._finished(result);
     }
-  });
+  }.bind(this));
 
   this.func.apply(this.ctx, args);
+}
+
+Runner.prototype._errored = function(err) {
+  process.nextTick(function() {
+    this._error && this._error(err);
+    this.emit('failure', err);
+  }.bind(this));
+}
+
+Runner.prototype._finished = function(result) {
+  process.nextTick(function() {
+    this._success && this._success(result);
+    this.emit('success', result);
+  }.bind(this));
 }
 
 Runner.prototype.success = function(f) {
