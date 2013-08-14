@@ -16,11 +16,7 @@ Runner.prototype.run = function() {
   var args = Array.prototype.slice.call(arguments);
 
   args.push(function(err, result) {
-    if (err) {
-      this._errored(err)
-    } else {
-      this._finished(result);
-    }
+    err ? this._errored(err) : this._finished(result);
   }.bind(this));
 
   this.func.apply(this.ctx, args);
