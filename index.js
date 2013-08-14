@@ -13,8 +13,7 @@ function Runner(ctx, func) {
 util.inherits(Runner, EventEmitter);
 
 Runner.prototype.run = function() {
-  var args = Array.prototype.slice.call(arguments),
-      self = this;
+  var args = Array.prototype.slice.call(arguments);
 
   args.push(function(err, result) {
     if (err) {
