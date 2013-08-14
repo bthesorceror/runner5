@@ -5,6 +5,11 @@ Runner5
 
 Running all of your functions.
 
+Notes
+----
+
+Context is an optional argument
+
 Error Example:
 --------------
 
