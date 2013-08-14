@@ -2,6 +2,10 @@ var EventEmitter = require('events').EventEmitter,
     util         = require('util');
 
 function Runner(ctx, func) {
+  if (!func) {
+    func = ctx;
+    ctx = {};
+  }
   this.func = func;
   this.ctx = ctx;
 }

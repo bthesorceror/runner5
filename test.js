@@ -71,5 +71,15 @@ var tape    = require('tape'),
     var runner = new Runner5(self, func);
     runner.run();
   });
+
+  tape('runner passes no context to function', function(t) {
+    t.plan(1);
+    var func = function() {
+      t.deepEquals(this, {});
+    }
+
+    var runner = new Runner5(func);
+    runner.run();
+  });
 })();
 
