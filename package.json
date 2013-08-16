@@ -1,6 +1,6 @@
 {
   "name": "runner5",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Callback wrapper",
   "main": "index.js",
   "scripts": {
