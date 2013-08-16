@@ -16,10 +16,14 @@ Runner.prototype.run = function() {
   var args = Array.prototype.slice.call(arguments);
 
   args.push(function(err, result) {
-    err ? this._errored(err) : this._finished(result);
+    this._isSuccess(err) ? this._finished(result) : this._errored(err);
   }.bind(this));
 
   this.func.apply(this.ctx, args);
+}
+
+Runner.prototype._isSuccess = function(err) {
+  return !err || (typeof(err) == "object" && !Object.keys(err).length);
 }
 
 Runner.prototype._errored = function(err) {

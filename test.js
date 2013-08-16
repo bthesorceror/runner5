@@ -37,6 +37,17 @@ var tape    = require('tape'),
     runner.run();
   });
 
+  tape('runner passes results to success function with a empty object as error', function(t) {
+    t.plan(1);
+    var runner = new Runner5({}, function(cb) { cb({}, results) });
+
+    runner.success(function(r) {
+      t.equal(results, r);
+    });
+
+    runner.run();
+  });
+
   tape('runner triggers success event with results', function(t) {
     t.plan(1);
     var runner = new Runner5({}, successFunc);
