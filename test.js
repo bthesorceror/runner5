@@ -20,6 +20,17 @@ var tape    = require('tape'),
     runner.on('failure', function(err) { t.equals(error, err); });
     runner.run();
   });
+
+  tape('runner triggers success event with custom check', function(t) {
+    var runner = new Runner5({}, failureFunc);
+
+    t.plan(1);
+
+    runner.setSuccessCheck(function(err) { return err && err == "ERROR!" });
+    runner.on('failure', function() { t.fail("Should not fail"); });
+    runner.on('success', function(result) { t.ok(true, "emitted success"); });
+    runner.run();
+  });
 })();
 
 (function() {

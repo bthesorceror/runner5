@@ -8,6 +8,9 @@ function Runner(ctx, func) {
   }
   this.func = func;
   this.ctx = ctx;
+  this._successCheck = function(err) {
+    return !err || (typeof(err) == "object" && !Object.keys(err).length);
+  };
 }
 
 util.inherits(Runner, EventEmitter);
@@ -22,8 +25,12 @@ Runner.prototype.run = function() {
   this.func.apply(this.ctx, args);
 }
 
+Runner.prototype.setSuccessCheck = function(func) {
+  this._successCheck = func;
+}
+
 Runner.prototype._isSuccess = function(err) {
-  return !err || (typeof(err) == "object" && !Object.keys(err).length);
+  return this._successCheck(err);
 }
 
 Runner.prototype._errored = function(err) {
